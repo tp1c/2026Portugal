@@ -577,6 +577,21 @@ function generateHTMLReport(sheetUrl, docUrl, scheduleValues, packingValues) {
             color: var(--text-dark);
         }
 
+        .infographic-container {
+            margin-bottom: 2.5rem;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(140, 118, 63, 0.03);
+        }
+
+        .infographic-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .alert-box {
             background: rgba(46, 74, 98, 0.04);
             border-left: 4px solid var(--accent);
@@ -850,6 +865,11 @@ function generateHTMLReport(sheetUrl, docUrl, scheduleValues, packingValues) {
         <div class="alert-box">
             <h4>💡 Lisbon Walkability Pro-Tips</h4>
             <p>Lisbon is built on extremely steep hills. Walkways are paved in traditional <em>calçada portuguesa</em> (cobblestones) which are highly slick when worn down or damp. <strong>High-traction rubber soles are mandatory</strong>. Avoid unnecessary uphill climbs by utilizing vertical transit shortcuts (metro station escalators, public lifts, and vintage Tram 25).</p>
+        </div>
+
+        <!-- INFOGRAPHIC HERO -->
+        <div class="infographic-container">
+            <img src="assets/portugal_itinerary.png" alt="12-Day Portugal & Viking Cruise Itinerary Infographic" class="infographic-img">
         </div>
 
         <!-- DAILY SCHEDULE -->
