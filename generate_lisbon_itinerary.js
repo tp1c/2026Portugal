@@ -357,11 +357,15 @@ async function run() {
       console.warn('https://console.developers.google.com/apis/api/docs.googleapis.com/overview?project=684061168650\n');
     }
 
-    // 3. Write local travel_guide.html
+    // 3. Write local travel_guide.html and index.html (Netlify entry point)
     const htmlContent = generateHTMLReport(spreadsheetUrl, docUrl, scheduleValues, packingValues);
     const htmlPath = path.join(__dirname, 'travel_guide.html');
     await fs.writeFile(htmlPath, htmlContent);
     console.log(`HTML report generated: ${htmlPath}`);
+
+    const indexPath = path.join(__dirname, 'index.html');
+    await fs.writeFile(indexPath, htmlContent);
+    console.log(`Index HTML generated: ${indexPath}`);
 
   } catch (err) {
     console.error('Error running script:', err);
