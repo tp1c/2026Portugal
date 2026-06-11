@@ -225,7 +225,7 @@ async function run() {
       ['Day 6 (Thu Jul 23)', '11:40 AM', 'Carrapatelo Lock Passage', 'Carrapatelo Lock (Rise: 35 meters).', 'Pass through the deepest lock in Europe. A spectacular engineering feat.'],
       ['Day 6 (Thu Jul 23)', '12:30 PM', 'Lunch onboard', 'Lunch in the Restaurant.', 'Enjoy a freshly prepared lunch as the ship continues sailing.'],
       ['Day 6 (Thu Jul 23)', '02:00 PM', 'Arrive in Lamego (Excursion Drop-off)', 'Viking Osfrid makes a brief stop in Lamego.', 'Welcome to Lamego. Disembark here for the afternoon included shore excursion.'],
-      ['Day 6 (Thu Jul 23)', '02:30 PM', 'Included Excursion: Mateus Palace & Gardens', 'Shore Excursion. Moderate walking. Bring audio receivers (runs until 05:45 PM).', 'Included Excursion. Visit the grand Mateus Palace (the elegant Baroque estate depicted on Mateus Rosé wine labels). Stroll the manicured hedge gardens, chapel, and interior rooms.'],
+      ['Day 6 (Thu Jul 23)', '02:45 PM', 'Included Excursion: Mateus Palace & Gardens', 'Shore Excursion. Moderate walking. Bring audio receivers (runs until 07:45 PM).', 'Included Excursion. Visit the grand Mateus Palace (the elegant Baroque estate depicted on Mateus Rosé wine labels). Stroll the manicured hedge gardens, chapel, and interior rooms.'],
       ['Day 6 (Thu Jul 23)', '03:00 PM', 'Ship Cast Off: Lamego to Pinhão', 'Viking Osfrid departs Lamego.', 'While guests are on the excursion, the ship casts off and continues sailing upstream to Pinhão.'],
       ['Day 6 (Thu Jul 23)', '03:30 PM', 'Bagaúste Lock Passage', 'Scenic cruising (ship only). Bagaúste Lock (Rise: 29.5 meters).', 'The ship passes through Bagaúste Lock during its transit to Pinhão.'],
       ['Day 6 (Thu Jul 23)', '05:00 PM', 'Drinks & Live Music in the Lounge', 'Casual get-together in the Lounge (runs until 07:00 PM).', 'Rejoin the ship in Pinhão. Enjoy drinks and live music by onboard musician Thiago.'],
@@ -242,10 +242,10 @@ async function run() {
       ['Day 7 (Fri Jul 24)', '11:00 AM', 'Pocinho Lock Passage', 'Scenic cruising. Pocinho Lock (Rise: 20 meters).', 'Passage through Pocinho Lock.'],
       ['Day 7 (Fri Jul 24)', '11:40 AM', 'Welcome to Pocinho (Excursion Drop-off)', 'Viking Osfrid makes a brief stop in Pocinho.', 'Disembark for the afternoon optional excursions, or stay onboard for lunch.'],
       ['Day 7 (Fri Jul 24)', '12:00 PM', 'Ship Cast Off: Pocinho to Barca d\'Alva', 'Viking Osfrid departs Pocinho.', 'The ship continues its journey to Barca d\'Alva while guests are on tour.'],
-      ['Day 7 (Fri Jul 24)', '12:00 PM', 'Optional Excursion: Marialva Castle & Lunch', 'Optional Excursion (runs until 05:15 PM).', 'Visit the historical ruins of Marialva Castle and enjoy a local lunch.'],
+      ['Day 7 (Fri Jul 24)', '12:30 PM', 'Optional Excursion: Marialva Castle & Lunch', 'Optional Excursion (runs until 05:00 PM).', 'Visit the historical ruins of Marialva Castle and enjoy a local lunch.'],
       ['Day 7 (Fri Jul 24)', '12:30 PM', 'Lunch onboard', 'Lunch in the Restaurant.', 'Freshly prepared lunch is served for guests staying onboard.'],
       ['Day 7 (Fri Jul 24)', '02:15 PM', 'Welcome to Barca d\'Alva', 'Viking Osfrid arrives in Barca d\'Alva.', 'The ship docks in Barca d\'Alva, near the Spanish border.'],
-      ['Day 7 (Fri Jul 24)', '02:30 PM', 'Included Excursion: Castelo Rodrigo', 'Shore Excursion. Bring audio receivers (runs until 05:00 PM).', 'Included Excursion. Tour the historic, fortified hilltop village of Castelo Rodrigo near the Spanish border. Taste local almonds and honey.'],
+      ['Day 7 (Fri Jul 24)', '02:00 PM', 'Included Excursion: Castelo Rodrigo', 'Shore Excursion. Bring audio receivers (runs until 05:00 PM).', 'Included Excursion. Tour the historic, fortified hilltop village of Castelo Rodrigo near the Spanish border. Taste local almonds and honey.'],
       ['Day 7 (Fri Jul 24)', '05:00 PM', 'Drinks & Live Music in the Lounge', 'Casual get-together in the Lounge (runs until 06:45 PM).', 'Enjoy drinks and live music by onboard musician Thiago.'],
       ['Day 7 (Fri Jul 24)', '06:45 PM', 'Port Talk', 'Lounge event.', 'Join Program Director Lídia in the Lounge to find out details about tomorrow\'s excursions and events.'],
       ['Day 7 (Fri Jul 24)', '07:00 PM', 'Dinner: Taste of Portugal', 'Dinner in the Restaurant.', 'Enjoy a hearty, traditional Portuguese dinner accompanied by Portuguese music.'],
@@ -254,7 +254,7 @@ async function run() {
       // Day 8 (Sat Jul 25)
       ['Day 8 (Sat Jul 25)', '06:00 AM', 'Café Breakfast Available', 'In front of the Restaurant.', 'Coffee and pastries are available.'],
       ['Day 8 (Sat Jul 25)', '07:00 AM', 'Breakfast Buffet', 'Enjoy breakfast in the Restaurant.', 'Breakfast is served in the Restaurant (runs until 09:00 AM).'],
-      ['Day 8 (Sat Jul 25)', '08:15 AM', 'Included Excursion: A Day in Salamanca', 'Shore Excursion. 9-hour duration (runs until 06:45 PM).', 'Included Excursion. Full day coach excursion to Salamanca, Spain. Visit the UNESCO-listed Salamanca University, Plaza Mayor, and the New Cathedral. Includes traditional lunch and Flamenco performance. Motorcoaches depart: A (8:15 AM), B (8:30 AM), C (8:45 AM).'],
+      ['Day 8 (Sat Jul 25)', '08:00 AM', 'Included Excursion: A Day in Salamanca', 'Shore Excursion. 9-hour duration (runs until 05:00 PM).', 'Included Excursion. Full day coach excursion to Salamanca, Spain. Visit the UNESCO-listed Salamanca University, Plaza Mayor, and the New Cathedral. Includes traditional lunch and Flamenco performance. Motorcoaches depart starting at 8:00 AM.'],
       ['Day 8 (Sat Jul 25)', '12:00 PM', 'Lunch onboard', 'Lunch in the Restaurant.', 'Lunch is served for guests staying onboard.'],
       ['Day 8 (Sat Jul 25)', '01:00 PM', 'Cast Off: Barca d\'Alva to Pocinho', 'Viking Osfrid departs Barca d\'Alva.', 'The ship sails downstream back toward Pocinho.'],
       ['Day 8 (Sat Jul 25)', '03:00 PM', 'Welcome to Pocinho', 'Viking Osfrid arrives in Pocinho.', 'The ship docks in Pocinho.'],
@@ -266,7 +266,7 @@ async function run() {
       // Day 9 (Sun Jul 26)
       ['Day 9 (Sun Jul 26)', '06:00 AM', 'Café Breakfast Available', 'In front of the Restaurant.', 'Coffee and pastries are available.'],
       ['Day 9 (Sun Jul 26)', '07:00 AM', 'Breakfast Buffet', 'Enjoy breakfast in the Restaurant.', 'Breakfast is served in the Restaurant (runs until 09:00 AM).'],
-      ['Day 9 (Sun Jul 26)', '08:45 AM', 'Included Excursion: Favaios Bakery & Quinta Avessada', 'Shore Excursion (runs until 03:00 PM).', 'Included Excursion. Visit the historic hilltop village of Favaios to see a traditional wood-fired bakery, followed by lunch and Moscatel tasting at Quinta da Avessada.'],
+      ['Day 9 (Sun Jul 26)', '08:45 AM', 'Included Excursion: Favaios Bakery & Quinta Avessada', 'Shore Excursion (runs until 02:45 PM).', 'Included Excursion. Visit the historic hilltop village of Favaios to see a traditional wood-fired bakery, followed by lunch and Moscatel tasting at Quinta da Avessada.'],
       ['Day 9 (Sun Jul 26)', '08:45 AM', 'Cast Off: Pocinho to Folgosa', 'Viking Osfrid departs Pocinho.', 'The ship continues downstream while guests are on the excursion.'],
       ['Day 9 (Sun Jul 26)', '09:00 AM', 'Pocinho Lock Passage', 'Scenic cruising. Pocinho Lock (Rise: 20 meters).', 'Passing through Pocinho Lock.'],
       ['Day 9 (Sun Jul 26)', '11:50 AM', 'Valeira Lock Passage', 'Scenic cruising. Valeira Lock (Rise: 33 meters).', 'Passing through Valeira Lock.'],
@@ -285,8 +285,8 @@ async function run() {
       // Day 10 (Mon Jul 27)
       ['Day 10 (Mon Jul 27)', '06:00 AM', 'Café Breakfast Available', 'In front of the Restaurant.', 'Coffee and pastries are available.'],
       ['Day 10 (Mon Jul 27)', '07:00 AM', 'Breakfast Buffet', 'Enjoy breakfast in the Restaurant.', 'Breakfast is served in the Restaurant (runs until 09:00 AM).'],
-      ['Day 10 (Mon Jul 27)', '08:15 AM', 'Optional Excursion: Cistercians & Wines', 'Optional Excursion (runs until 01:00 PM).', 'Explore Cistercian architecture and enjoy a local wine tasting.'],
-      ['Day 10 (Mon Jul 27)', '08:30 AM', 'Included Excursion: Charming Lamego', 'Shore Excursion. Choice of walking down 686 stairs (runs until 01:00 PM).', 'Included Excursion. Visit the Shrine of Our Lady of Remedies, see the tiled baroque landings, and explore the town of Lamego.'],
+      ['Day 10 (Mon Jul 27)', '08:15 AM', 'Optional Excursion: Cistercians & Wines', 'Optional Excursion (runs until 11:45 AM).', 'Explore Cistercian architecture and enjoy a local wine tasting.'],
+      ['Day 10 (Mon Jul 27)', '09:00 AM', 'Included Excursion: Charming Lamego', 'Shore Excursion. Choice of walking down 686 stairs (runs until 12:00 PM).', 'Included Excursion. Visit the Shrine of Our Lady of Remedies, see the tiled baroque landings, and explore the town of Lamego.'],
       ['Day 10 (Mon Jul 27)', '08:30 AM', 'Cast Off: Régua to Entre-os-Rios', 'Viking Osfrid departs Régua.', 'The ship departs Régua while guests are on the excursion.'],
       ['Day 10 (Mon Jul 27)', '11:15 AM', 'Carrapatelo Lock Passage', 'Scenic cruising. Carrapatelo Lock (Rise: 35 meters).', 'Passing through Carrapatelo Lock.'],
       ['Day 10 (Mon Jul 27)', '12:30 PM', 'Welcome to Entre-os-Rios (Rejoin Ship)', 'Viking Osfrid makes a brief stop in Entre-os-Rios.', 'Guests returning from the Lamego excursion rejoin the ship.'],
@@ -305,12 +305,12 @@ async function run() {
       // Day 11 (Tue Jul 28)
       ['Day 11 (Tue Jul 28)', '06:00 AM', 'Café Breakfast Available', 'In front of the Restaurant.', 'Coffee and pastries are available.'],
       ['Day 11 (Tue Jul 28)', '07:00 AM', 'Breakfast Buffet', 'Enjoy breakfast in the Restaurant.', 'Breakfast is served in the Restaurant (runs until 09:00 AM).'],
-      ['Day 11 (Tue Jul 28)', '08:30 AM', 'Included Excursion: Porto on Foot', 'Shore Excursion (runs until 12:15 PM).', 'Included Excursion. Guided walking tour of historic Porto (UNESCO World Heritage Site), including tiled São Bento Station and Cathedral. Sign up at Desk.'],
+      ['Day 11 (Tue Jul 28)', '08:30 AM', 'Included Excursion: Porto on Foot', 'Shore Excursion (runs until 12:00 PM).', 'Included Excursion. Guided walking tour of historic Porto (UNESCO World Heritage Site), including tiled São Bento Station and Cathedral. Sign up at Desk.'],
       ['Day 11 (Tue Jul 28)', '12:30 PM', 'Lunch onboard', 'Lunch in the Restaurant.', 'Lunch is served in the Restaurant.'],
       ['Day 11 (Tue Jul 28)', '01:45 PM', 'Optional Excursion: Quinta da Aveleda', 'Optional Excursion (runs until 05:45 PM).', 'Visit the beautiful Aveleda estate and gardens, followed by a wine tasting.'],
       ['Day 11 (Tue Jul 28)', '01:45 PM', 'Optional Excursion: Historic Guimarães', 'Optional Excursion (runs until 06:15 PM).', 'Visit the birthplace of Portugal and its medieval castle.'],
       ['Day 11 (Tue Jul 28)', '02:00 PM', 'Porto City Shuttle Service', 'Gaia dock to Porto City Center (runs until 05:00 PM).', 'Complimentary shuttle service provided for exploring Porto at your leisure.'],
-      ['Day 11 (Tue Jul 28)', '03:20 PM', 'Optional Excursion: Port Wine Cellars', 'Optional Excursion (runs until 04:45 PM).', 'Guided tour and tasting at a historic port wine cellar in Vila Nova de Gaia.'],
+      ['Day 11 (Tue Jul 28)', '03:15 PM', 'Optional Excursion: Port Wine Cellars', 'Optional Excursion (runs until 04:45 PM).', 'Guided tour and tasting at a historic port wine cellar in Vila Nova de Gaia.'],
       ['Day 11 (Tue Jul 28)', '05:30 PM', 'Drinks & Live Music in the Lounge', 'Casual get-together in the Lounge (runs until 06:30 PM).', 'Enjoy drinks and live music with Thiago.'],
       ['Day 11 (Tue Jul 28)', '06:30 PM', 'Captain\'s Cocktail Party & Farewell', 'Lounge event.', 'Join Captain Bernardino for a farewell toast, followed by final farewell remarks from Program Director Lidia at 06:45 PM.'],
       ['Day 11 (Tue Jul 28)', '07:00 PM', 'Captain\'s Farewell Dinner', 'Dinner in the Restaurant.', 'Celebrate the cruise with a special farewell dinner.'],
@@ -493,12 +493,12 @@ function generateHTMLReport(sheetUrl, docUrl, scheduleValues, packingValues) {
       else if (day.includes('Day 3 ')) dayTitle = 'Monday, July 20, 2026 – Sintra, Pena Palace, Regaleira & Cascais Day-Trip';
       else if (day.includes('Day 4 ')) dayTitle = 'Tuesday, July 21, 2026 – Fátima, Batalha, Nazaré & Óbidos Day-Trip';
       else if (day.includes('Day 5 ')) dayTitle = 'Wednesday, July 22, 2026 – Coimbra Stop & Porto Embarkation';
-      else if (day.includes('Day 6 ')) dayTitle = 'Thursday, July 23, 2026 – Porto City Tour & Bitetos Scenic Sailing';
-      else if (day.includes('Day 7 ')) dayTitle = 'Friday, July 24, 2026 – Régua & Vila Real (Mateus Palace)';
-      else if (day.includes('Day 8 ')) dayTitle = 'Saturday, July 25, 2026 – Pinhão Railway Station & Favaios Village';
-      else if (day.includes('Day 9 ')) dayTitle = 'Sunday, July 26, 2026 – Salamanca (Spain) Full-Day Excursion';
-      else if (day.includes('Day 10 ')) dayTitle = 'Monday, July 27, 2026 – Castelo Rodrigo Fortified Hilltop Village';
-      else if (day.includes('Day 11 ')) dayTitle = 'Tuesday, July 28, 2026 – Lamego Pilgrimage & Porto Cellars';
+      else if (day.includes('Day 6 ')) dayTitle = 'Thursday, July 23, 2026 – Régua & Vila Real (Mateus Palace & Gardens)';
+      else if (day.includes('Day 7 ')) dayTitle = 'Friday, July 24, 2026 – Scenic Sailing & Castelo Rodrigo';
+      else if (day.includes('Day 8 ')) dayTitle = 'Saturday, July 25, 2026 – Salamanca (Spain) Full-Day Excursion';
+      else if (day.includes('Day 9 ')) dayTitle = 'Sunday, July 26, 2026 – Favaios Bakery & Quinta Avessada';
+      else if (day.includes('Day 10 ')) dayTitle = 'Monday, July 27, 2026 – Charming Lamego & Porto Cruising';
+      else if (day.includes('Day 11 ')) dayTitle = 'Tuesday, July 28, 2026 – Porto on Foot & Port Wine Cellars';
       else if (day.includes('Day 12 ')) dayTitle = 'Wednesday, July 29, 2026 – Porto Disembarkation & Departure';
 
       scheduleHtml += `        <div class="day-section">
