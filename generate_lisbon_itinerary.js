@@ -8,9 +8,16 @@ const TOKEN_PATH = path.join(__dirname, 'token.json');
 
 async function loadSavedCredentialsIfExist() {
   try {
-    const content = await fs.readFile(TOKEN_PATH);
-    const credentials = JSON.parse(content);
-    return google.auth.fromJSON(credentials);
+    const credsContent = await fs.readFile(CREDENTIALS_PATH);
+    const credentials = JSON.parse(credsContent);
+    const { client_secret, client_id } = credentials.installed || credentials.web;
+    const redirectUri = 'http://localhost:3000';
+    const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirectUri);
+    
+    const tokenContent = await fs.readFile(TOKEN_PATH);
+    const tokens = JSON.parse(tokenContent);
+    oAuth2Client.setCredentials(tokens);
+    return oAuth2Client;
   } catch (err) {
     return null;
   }
@@ -151,36 +158,11 @@ async function createGoogleDoc(auth, scheduleValues, bookingValues, packingValue
 
 async function run() {
   try {
-    const auth = await loadSavedCredentialsIfExist();
-    if (!auth) {
-      console.error('Error: Token not found. Please authenticate first by running node scratch/test_sheets.js');
-      return;
-    }
+    let spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1BOLXwfHaxhJitYRO-3NmleJi6ZBaYj8pivw3I7qkQCU/edit';
+    let docUrl = 'https://docs.google.com/document/d/1npSRDGCt-zCF-PKlLKAC_4GaTiKJIG-62ijGJ1uPBBA/edit';
 
-    const sheets = google.sheets({ version: 'v4', auth });
-    console.log('Creating a new Google Sheet for the Lisbon Itinerary...');
-
-    // 1. Create a new Spreadsheet
-    const spreadsheetResponse = await sheets.spreadsheets.create({
-      resource: {
-        properties: {
-          title: 'Viking Portugal\'s River of Gold - Lisbon 4-Day Itinerary',
-        },
-      },
-      fields: 'spreadsheetId,spreadsheetUrl',
-    });
-
-    const spreadsheetId = spreadsheetResponse.data.spreadsheetId;
-    const spreadsheetUrl = spreadsheetResponse.data.spreadsheetUrl;
-    console.log(`Spreadsheet created: ${spreadsheetId}`);
-
-    // Tab sheet IDs
-    const scheduleSheetId = 0;
-    const bookingsSheetId = 10001;
-    const packingSheetId = 10002;
-
-    // Data definitions (without flight details)
-    const scheduleValues = [
+  // Data definitions (without flight details)
+  const scheduleValues = [
       ['Day', 'Time', 'Location', 'Logistics & Walkability', 'Local Vibe & Notes'],
       // Lisbon Pre-Cruise Stay
       ['Day 1 (Sat Jul 18)', '11:05 AM', 'Arrival in Lisbon & Transfer', 'Viking Transfer included. Corinthia Hotel (Avenida Columbano Bordalo Pinheiro 105).', 'Met at the airport by a Viking Representative who will accompany you to the Corinthia Hotel. Check-in, unpack, and relax.'],
@@ -312,13 +294,13 @@ async function run() {
       // Day 11 (Tue Jul 28)
       ['Day 11 (Tue Jul 28)', '06:00 AM', 'Café Breakfast Available', 'In front of the Restaurant.', 'Coffee and pastries are available.'],
       ['Day 11 (Tue Jul 28)', '07:00 AM', 'Breakfast Buffet', 'Enjoy breakfast in the Restaurant.', 'Breakfast is served in the Restaurant (runs until 09:00 AM).'],
-      ['Day 11 (Tue Jul 28)', '08:30 AM', 'Included Excursion: Porto on Foot', 'Shore Excursion (runs until 12:00 PM).', 'Included Excursion. Guided walking tour of historic Porto (UNESCO World Heritage Site), including tiled São Bento Station and Cathedral. Sign up at Desk.'],
-      ['Day 11 (Tue Jul 28)', '12:30 PM', 'Lunch onboard', 'Lunch in the Restaurant.', 'Lunch is served in the Restaurant.'],
-      ['Day 11 (Tue Jul 28)', '01:45 PM', 'Optional Excursion: Quinta da Aveleda', 'Optional Excursion (runs until 05:45 PM).', 'Visit the beautiful Aveleda estate and gardens, followed by a wine tasting.'],
-      ['Day 11 (Tue Jul 28)', '01:45 PM', 'Optional Excursion: Historic Guimarães', 'Optional Excursion (runs until 06:15 PM).', 'Visit the birthplace of Portugal and its medieval castle.'],
-      ['Day 11 (Tue Jul 28)', '02:00 PM', 'Porto City Shuttle Service', 'Gaia dock to Porto City Center (runs until 05:00 PM).', 'Complimentary shuttle service provided for exploring Porto at your leisure.'],
-      ['Day 11 (Tue Jul 28)', '03:15 PM', 'Optional Excursion: Port Wine Cellars', 'Optional Excursion (runs until 04:45 PM).', 'Guided tour and tasting at a historic port wine cellar in Vila Nova de Gaia.'],
-      ['Day 11 (Tue Jul 28)', '05:30 PM', 'Drinks & Live Music in the Lounge', 'Casual get-together in the Lounge (runs until 06:30 PM).', 'Enjoy drinks and live music with Thiago.'],
+      ['Day 11 (Tue Jul 28)', '09:30 AM', 'Transit to the Upper City & Coffee', 'Gaia dock to Igreja do Carmo.', 'Take a short Uber ride from the Gaia dock to the upper downtown area of Porto (near Igreja do Carmo). Start with specialty coffee at Fábrica or SO Coffee Roasters, and grab a warm pastel de nata from Manteigaria.'],
+      ['Day 11 (Tue Jul 28)', '10:30 AM', 'Porto Heights Walk & Viewpoints', 'Porto Historic Center (downhill walking).', 'Walk past Livraria Lello to admire its exterior, then head to Miradouro da Vitória for stunning, crowd-free views. Stroll downhill through medieval alleys toward the river.'],
+      ['Day 11 (Tue Jul 28)', '12:30 PM', 'Authentic Pork Sandwich Lunch', 'Conga or Casa Guedes.', 'Skip the overpriced riverside tourist menus and eat where the locals do. Head to Conga for their famous Porto-style bifana or Casa Guedes for roasted pork leg sandwiches.'],
+      ['Day 11 (Tue Jul 28)', '02:00 PM', 'Ribeira & The Barcos Rabelos', 'Ribeira district.', 'Descend into the riverside Ribeira district to admire the traditional barcos rabelos—the historic wooden cargo boats that once transported wine from the Douro Valley.'],
+      ['Day 11 (Tue Jul 28)', '02:30 PM', 'Dom Luís I Bridge Crossing', 'Ponte de Dom Luís I (lower deck).', 'Enjoy a flat, scenic 10-minute walk across the lower deck of the Ponte de Dom Luís I iron bridge, returning to the Vila Nova de Gaia waterfront.'],
+      ['Day 11 (Tue Jul 28)', '03:30 PM', 'Sandeman Port Tasting', 'Sandeman Cellars (Vila Nova de Gaia).', 'Guided tour and tasting of premium Rubies, LBVs, and Tawny Ports at the historic Sandeman Cellars located on the flat Gaia riverfront. View their impressive historical bottle collection.'],
+      ['Day 11 (Tue Jul 28)', '05:30 PM', 'Return to Ship & Relax', 'Viking Osfrid (Cais de Gaia).', 'Short walk back to the ship. Settle back onboard and relax in the Lounge before the evening\'s festivities.'],
       ['Day 11 (Tue Jul 28)', '06:30 PM', 'Captain\'s Cocktail Party & Farewell', 'Lounge event.', 'Join Captain Bernardino for a farewell toast, followed by final farewell remarks from Program Director Lidia at 06:45 PM.'],
       ['Day 11 (Tue Jul 28)', '07:00 PM', 'Captain\'s Farewell Dinner', 'Dinner in the Restaurant.', 'Celebrate the cruise with a special farewell dinner.'],
       ['Day 11 (Tue Jul 28)', '09:00 PM', 'Evening Entertainment', 'Lounge event.', 'Enjoy final evening music and dancing in the Lounge with Thiago.'],
@@ -352,106 +334,136 @@ async function run() {
       ['Medication', 'Motion sickness tablets / Sea-Bands (for cruise/trams)', false]
     ];
 
-    console.log('Adding tabs and data...');
+    // Google Sheets and Docs API execution wrapped in try-catch
 
-    // Rename default sheet to "📅 Daily Schedule" and add custom tab IDs
-    await sheets.spreadsheets.batchUpdate({
-      spreadsheetId,
-      resource: {
-        requests: [
-          {
-            updateSheetProperties: {
-              properties: {
-                sheetId: scheduleSheetId,
-                title: '📅 Daily Schedule',
-              },
-              fields: 'title',
-            },
+    try {
+      const auth = await loadSavedCredentialsIfExist();
+      if (!auth) {
+        throw new Error('Token not found.');
+      }
+
+      const sheets = google.sheets({ version: 'v4', auth });
+      console.log('Creating a new Google Sheet for the Lisbon Itinerary...');
+
+      const spreadsheetResponse = await sheets.spreadsheets.create({
+        resource: {
+          properties: {
+            title: 'Viking Portugal\'s River of Gold - Lisbon 4-Day Itinerary',
           },
-          {
-            addSheet: {
-              properties: {
-                sheetId: bookingsSheetId,
-                title: '🏨 Hotel & Cruise Bookings',
-              },
-            },
-          },
-          {
-            addSheet: {
-              properties: {
-                sheetId: packingSheetId,
-                title: '🎒 Packing List',
-              },
-            },
-          },
-        ],
-      },
-    });
+        },
+        fields: 'spreadsheetId,spreadsheetUrl',
+      });
 
-    // Write Daily Schedule
-    await sheets.spreadsheets.values.update({
-      spreadsheetId,
-      range: '\'📅 Daily Schedule\'!A1',
-      valueInputOption: 'USER_ENTERED',
-      resource: { values: scheduleValues },
-    });
+      const spreadsheetId = spreadsheetResponse.data.spreadsheetId;
+      const createdUrl = spreadsheetResponse.data.spreadsheetUrl;
+      if (createdUrl) {
+        spreadsheetUrl = createdUrl;
+      }
+      console.log(`Spreadsheet created: ${spreadsheetId}`);
 
-    // Write Hotel & Cruise Bookings
-    await sheets.spreadsheets.values.update({
-      spreadsheetId,
-      range: '\'🏨 Hotel & Cruise Bookings\'!A1',
-      valueInputOption: 'USER_ENTERED',
-      resource: { values: bookingValues },
-    });
+      const scheduleSheetId = 0;
+      const bookingsSheetId = 10001;
+      const packingSheetId = 10002;
 
-    // Write Packing List
-    await sheets.spreadsheets.values.update({
-      spreadsheetId,
-      range: '\'🎒 Packing List\'!A1',
-      valueInputOption: 'USER_ENTERED',
-      resource: { values: packingValues },
-    });
-
-    // Apply Checkboxes to Column C (Column index 2) of Packing List Sheet
-    console.log('Configuring checkbox validation...');
-    await sheets.spreadsheets.batchUpdate({
-      spreadsheetId,
-      resource: {
-        requests: [
-          {
-            setDataValidation: {
-              range: {
-                sheetId: packingSheetId,
-                startRowIndex: 1, // Skip header row
-                endRowIndex: packingValues.length,
-                startColumnIndex: 2, // Column C (0-indexed)
-                endColumnIndex: 3
-              },
-              rule: {
-                condition: {
-                  type: 'BOOLEAN'
+      await sheets.spreadsheets.batchUpdate({
+        spreadsheetId,
+        resource: {
+          requests: [
+            {
+              updateSheetProperties: {
+                properties: {
+                  sheetId: scheduleSheetId,
+                  title: '📅 Daily Schedule',
                 },
-                showCustomUi: true
+                fields: 'title',
+              },
+            },
+            {
+              addSheet: {
+                properties: {
+                  sheetId: bookingsSheetId,
+                  title: '🏨 Hotel & Cruise Bookings',
+                },
+              },
+            },
+            {
+              addSheet: {
+                properties: {
+                  sheetId: packingSheetId,
+                  title: '🎒 Packing List',
+                },
+              },
+            },
+          ],
+        },
+      });
+
+      // Write Daily Schedule
+      await sheets.spreadsheets.values.update({
+        spreadsheetId,
+        range: '\'📅 Daily Schedule\'!A1',
+        valueInputOption: 'USER_ENTERED',
+        resource: { values: scheduleValues },
+      });
+
+      // Write Hotel & Cruise Bookings
+      await sheets.spreadsheets.values.update({
+        spreadsheetId,
+        range: '\'🏨 Hotel & Cruise Bookings\'!A1',
+        valueInputOption: 'USER_ENTERED',
+        resource: { values: bookingValues },
+      });
+
+      // Write Packing List
+      await sheets.spreadsheets.values.update({
+        spreadsheetId,
+        range: '\'🎒 Packing List\'!A1',
+        valueInputOption: 'USER_ENTERED',
+        resource: { values: packingValues },
+      });
+
+      // Apply Checkboxes
+      await sheets.spreadsheets.batchUpdate({
+        spreadsheetId,
+        resource: {
+          requests: [
+            {
+              setDataValidation: {
+                range: {
+                  sheetId: packingSheetId,
+                  startRowIndex: 1,
+                  endRowIndex: packingValues.length,
+                  startColumnIndex: 2,
+                  endColumnIndex: 3
+                },
+                rule: {
+                  condition: {
+                    type: 'BOOLEAN'
+                  },
+                  showCustomUi: true
+                }
               }
             }
-          }
-        ]
+          ]
+        }
+      });
+
+      console.log('Data populated and checkboxes configured successfully!');
+      console.log(`Google Sheet URL: ${spreadsheetUrl}`);
+
+      try {
+        const createdDocUrl = await createGoogleDoc(auth, scheduleValues, bookingValues, packingValues);
+        if (createdDocUrl) {
+          docUrl = createdDocUrl;
+        }
+        console.log(`Google Doc URL: ${docUrl}`);
+      } catch (docsError) {
+        console.error('Error generating Google Doc details:', docsError.message);
       }
-    });
 
-    console.log('Data populated and checkboxes configured successfully!');
-    console.log(`Google Sheet URL: ${spreadsheetUrl}`);
-
-    // Generate Google Doc
-    let docUrl = null;
-    try {
-      docUrl = await createGoogleDoc(auth, scheduleValues, bookingValues, packingValues);
-      console.log(`Google Doc URL: ${docUrl}`);
-    } catch (docsError) {
-      console.error('Error generating Google Doc details:', docsError);
-      console.warn('\n⚠️  Warning: Failed to generate Google Doc. Google Docs API is disabled in your project.');
-      console.warn('Please enable it by visiting:');
-      console.warn('https://console.developers.google.com/apis/api/docs.googleapis.com/overview?project=684061168650\n');
+    } catch (gapiError) {
+      console.warn('\n⚠️ Warning: Failed to write to Google APIs:', gapiError.message || gapiError);
+      if (gapiError.stack) console.warn(gapiError.stack);
     }
 
     // 3. Write local travel_guide.html and index.html (Netlify entry point)
@@ -505,7 +517,7 @@ function generateHTMLReport(sheetUrl, docUrl, scheduleValues, packingValues) {
       else if (day.includes('Day 8 ')) dayTitle = 'Saturday, July 25, 2026 – Salamanca (Spain) Full-Day Excursion';
       else if (day.includes('Day 9 ')) dayTitle = 'Sunday, July 26, 2026 – Favaios Bakery & Quinta Avessada';
       else if (day.includes('Day 10 ')) dayTitle = 'Monday, July 27, 2026 – Charming Lamego & Porto Cruising';
-      else if (day.includes('Day 11 ')) dayTitle = 'Tuesday, July 28, 2026 – Porto on Foot & Port Wine Cellars';
+      else if (day.includes('Day 11 ')) dayTitle = 'Tuesday, July 28, 2026 – Porto & Gaia: A Downhill Guide to Wine & Heritage';
       else if (day.includes('Day 12 ')) dayTitle = 'Wednesday, July 29, 2026 – Porto Disembarkation & Departure';
 
       scheduleHtml += `        <div class="day-section">
