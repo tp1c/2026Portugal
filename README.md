@@ -23,6 +23,6 @@ To regenerate or update the Google Doc, Google Sheet, and HTML report:
 
 ## 🔗 Generated Outputs
 
-* **Google Sheet**: [Open Google Sheet](https://docs.google.com/spreadsheets/d/1BUOe-PhYu4vBBKi9NSLbnIe8VndaALLiBf_9uCIwbp0/edit)
-* **Google Doc**: [Open Google Doc](https://docs.google.com/document/d/1ottn1xnLAhFE7J7aIWpFOzFNMINeVttiEWyQ1pALw-8/edit)
+* **Google Sheet**: [Open Google Sheet](https://docs.google.com/spreadsheets/d/1pPdRNxPhwllrPZjJ-Cvo8o_qIYIygP3oSXbonJwVO30/edit)
+* **Google Doc**: [Open Google Doc](https://docs.google.com/document/d/1q2zaQTY0kDQa0G_NyMuXSozOK33VNxgtmlBHlI2cC8Q/edit)
 * **Local Web Guide**: [travel_guide.html](travel_guide.html)
