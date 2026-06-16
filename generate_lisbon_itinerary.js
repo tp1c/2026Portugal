@@ -158,8 +158,8 @@ async function createGoogleDoc(auth, scheduleValues, bookingValues, packingValue
 
 async function run() {
   try {
-    let spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1pPdRNxPhwllrPZjJ-Cvo8o_qIYIygP3oSXbonJwVO30/edit';
-    let docUrl = 'https://docs.google.com/document/d/1q2zaQTY0kDQa0G_NyMuXSozOK33VNxgtmlBHlI2cC8Q/edit';
+    let spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1guRxU3Cw4Y9rHIoNZO8tqbrzhSqelT2rkA-PSOFOVbU/edit';
+    let docUrl = 'https://docs.google.com/document/d/1OYiSWmtD4UUHCy0dZyo_kRRiub--SjNoIlHIoQAXeTg/edit';
 
   // Data definitions (without flight details)
   const scheduleValues = [
@@ -186,12 +186,13 @@ async function run() {
       ['Day 3 (Mon Jul 20)', '02:00 PM', 'Lunch & Stroll in Cascais Fishing Village', 'Stop for lunch and stroll in historic center. Flat coastal walking.', 'Seaside town with beautiful beaches. Tip: Skip the overpriced tourist traps on the main squares and look for a quiet, authentic tasca tucked away in backstreets for fresh seafood.'],
       ['Day 3 (Mon Jul 20)', '04:30 PM', 'Return Transfer & City Center Drop-off', 'Praça dos Restauradores 24 (ends where it started), or take Metro/taxi from hotel.', 'Board the tour van for the return transfer. Spend the late afternoon strolling through the beautiful plazas and watching the city come alive under evening lights.'],
       ['Day 3 (Mon Jul 20)', '07:30 PM', 'Dinner in Chiado (City Center)', 'Walk to dining venue. Return to Corinthia Hotel via Metro Blue Line (to Sete Rios) or Uber.', 'Dine at an acclaimed spot like Bairro do Avillez (seafood/tapas) or Sacramento (romantic vaulted palace cellars). Reservations are mandatory.'],
-      ['Day 4 (Tue Jul 21)', '08:00 AM', 'Tour Departure: Fátima, Batalha, Nazaré & Óbidos', 'Corinthia Hotel Lobby. Meet 5 minutes before departure (by 07:55 AM).', 'Board the air-conditioned van for the GetYourGuide small-group tour (Discover Portugal With Us). Voucher: GYGG45RVL3GQ. Duration: 10 hours. Provider will confirm exact pickup 1-2 days prior.'],
-      ['Day 4 (Tue Jul 21)', '09:30 AM', 'Fátima Sanctuary', '1.5-hour drive from Lisbon. Flat, massive open plaza.', 'Major Christian pilgrimage site. Visit the Chapel of Apparitions and the Basilica of Our Lady of Fátima where the three shepherd children are buried.'],
-      ['Day 4 (Tue Jul 21)', '11:15 AM', 'Batalha Monastery', '30-minute drive. UNESCO World Heritage Site. Large adjacent parking lot.', 'Stunning 14th-century Gothic masterpiece built to thank the Virgin Mary. Receives far fewer crowds than monuments in Lisbon, providing a peaceful experience.'],
-      ['Day 4 (Tue Jul 21)', '12:45 PM', 'Lunch & Sightseeing in Nazaré', '30-minute drive. Ride the modern funicular (every 15 mins) up to the clifftop Sítio district.', 'Seaside town famous for the world\'s largest surf waves. Tip: Dine at Taberna d\'Adelia (Michelin-reviewed seafood). Look for local women drying fish on beach racks.'],
-      ['Day 4 (Tue Jul 21)', '03:15 PM', 'Óbidos Medieval Walled Town', '30-minute drive. Enclosed by 13th-century stone walls. Cobblestone pathways.', 'Walk the ancient perimeter walls (Caution: 20-30 ft high, no railings). Try Ginja de Óbidos (sour cherry liqueur) in an edible chocolate cup from a local vendor.'],
-      ['Day 4 (Tue Jul 21)', '05:00 PM', 'Return Transfer to Lisbon', '1-hour drive back, arriving in Lisbon around 06:00 PM.', 'Relax on the drive back. Drop-off at Corinthia Hotel. The evening is free to rest before your cruise check-in tomorrow.'],
+      ['Day 4 (Tue Jul 21)', '08:00 AM', 'Tour Departure: Fátima, Batalha, Nazaré & Óbidos', 'Corinthia Hotel Lobby. Meet 5 minutes before departure (by 07:55 AM).', 'Board the air-conditioned van for the GetYourGuide small-group tour (Discover Portugal With Us). Voucher: GYGG45RVL3GQ. Duration: 10 hours total. Provider will email/message the exact pickup time the evening prior around 07:00 PM.'],
+      ['Day 4 (Tue Jul 21)', '09:15 AM', 'Sino Factory Stop (Fátima)', '1.25-hour drive from Lisbon. 20-minute stop.', 'A brief 20-minute visit to a traditional bell/statue factory (Sino Factory) to see local artisans at work before entering the holy sanctuary.'],
+      ['Day 4 (Tue Jul 21)', '09:35 AM', 'Sanctuary of Our Lady of Fátima', '75-minute visit. Flat, massive open plaza.', 'Major Christian pilgrimage site. Enjoy a 75-minute guided tour and free time at the Sanctuary of Our Lady of Fátima, including the Chapel of Apparitions and the Basilica.'],
+      ['Day 4 (Tue Jul 21)', '11:15 AM', 'Batalha Monastery Stop', '25-minute drive from Fátima. 20-minute guided stop.', 'A brief 20-minute guided visit/photo stop at this stunning 14th-century Gothic masterpiece (UNESCO World Heritage Site). (Note: This is a short stop rather than an in-depth tour).'],
+      ['Day 4 (Tue Jul 21)', '12:00 PM', 'Nazaré Fishermen Village & Lunch', '25-minute drive from Batalha. 1.5 to 1.75 hours stay.', 'Visit the famous clifftop Sítio district and the seaside town. Includes a 30-minute guided tour/free time and a 1-hour optional lunch (extra fee, or dine at local spots like Taberna d\'Adelia).'],
+      ['Day 4 (Tue Jul 21)', '02:00 PM', 'Óbidos Medieval Walled Town', '30-minute drive from Nazaré. 75-minute visit. Cobblestones.', 'Explore the historic walled city of Óbidos. Stroll the ancient pathways and try Ginja de Óbidos (sour cherry liqueur) in an edible chocolate cup from a local vendor.'],
+      ['Day 4 (Tue Jul 21)', '03:45 PM', 'Return Transfer to Lisbon', '50-minute to 1-hour drive back, arriving at hotel around 04:45 PM - 05:30 PM.', 'Relax on the drive back. Drop-off at Corinthia Hotel. The rest of the afternoon is free to rest and pack before cruise check-out tomorrow.'],
       ['Day 4 (Tue Jul 21)', '08:00 PM', 'Farewell Dinner at hotel (Erva or Soul Garden)', '0 km (On-site at Corinthia Lisbon).', 'Enjoy a relaxing final night dinner at the hotel. Get a good night\'s rest before checking out tomorrow and boarding the Viking Osfrid in Porto.'],
       
       // Douro River Cruise Portion
