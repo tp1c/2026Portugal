@@ -158,8 +158,8 @@ async function createGoogleDoc(auth, scheduleValues, bookingValues, packingValue
 
 async function run() {
   try {
-    let spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1guRxU3Cw4Y9rHIoNZO8tqbrzhSqelT2rkA-PSOFOVbU/edit';
-    let docUrl = 'https://docs.google.com/document/d/1OYiSWmtD4UUHCy0dZyo_kRRiub--SjNoIlHIoQAXeTg/edit';
+    let spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1ZWIaHRRsVBOZmc2CDEjl471hF73Ba35GR7T3WNDNDTI/edit';
+    let docUrl = 'https://docs.google.com/document/d/1-6k_fPyMxQgI4uAqyJ7oP82Ga2pK_qIaxXUER3MHXr4/edit';
 
   // Data definitions (without flight details)
   const scheduleValues = [
@@ -300,7 +300,7 @@ async function run() {
       ['Day 11 (Tue Jul 28)', '12:30 PM', 'Authentic Pork Sandwich Lunch', 'Conga or Casa Guedes.', 'Skip the overpriced riverside tourist menus and eat where the locals do. Head to Conga for their famous Porto-style bifana or Casa Guedes for roasted pork leg sandwiches.'],
       ['Day 11 (Tue Jul 28)', '02:00 PM', 'Ribeira & The Barcos Rabelos', 'Ribeira district.', 'Descend into the riverside Ribeira district to admire the traditional barcos rabelos—the historic wooden cargo boats that once transported wine from the Douro Valley.'],
       ['Day 11 (Tue Jul 28)', '02:30 PM', 'Dom Luís I Bridge Crossing', 'Ponte de Dom Luís I (lower deck).', 'Enjoy a flat, scenic 10-minute walk across the lower deck of the Ponte de Dom Luís I iron bridge, returning to the Vila Nova de Gaia waterfront.'],
-      ['Day 11 (Tue Jul 28)', '03:30 PM', 'Sandeman Port Tasting', 'Sandeman Cellars (Vila Nova de Gaia).', 'Guided tour and tasting of premium Rubies, LBVs, and Tawny Ports at the historic Sandeman Cellars located on the flat Gaia riverfront. View their impressive historical bottle collection.'],
+      ['Day 11 (Tue Jul 28)', '03:45 PM', 'Sandeman Port Tasting (1790 Tour)', 'SANDEMAN WINE CELLAR (Largo Miguel Bombarda 47).', 'Booked via Livingtours (Voucher: #200034192). Arrive 10-15 minutes early. Enjoy a guided visit to the cellars and a tasting of premium Sandeman Port wines.'],
       ['Day 11 (Tue Jul 28)', '05:30 PM', 'Return to Ship & Relax', 'Viking Osfrid (Cais de Gaia).', 'Short walk back to the ship. Settle back onboard and relax in the Lounge before the evening\'s festivities.'],
       ['Day 11 (Tue Jul 28)', '06:30 PM', 'Captain\'s Cocktail Party & Farewell', 'Lounge event.', 'Join Captain Bernardino for a farewell toast, followed by final farewell remarks from Program Director Lidia at 06:45 PM.'],
       ['Day 11 (Tue Jul 28)', '07:00 PM', 'Captain\'s Farewell Dinner', 'Dinner in the Restaurant.', 'Celebrate the cruise with a special farewell dinner.'],
@@ -313,6 +313,7 @@ async function run() {
       ['Hotel', 'The Corinthia Lisbon', 'July 18 – July 22, 2026', 'Avenida Columbano Bordalo Pinheiro 105', 'Included in pre-cruise package'],
       ['Tour', 'Sintra, Pena, Regaleira, Roca Coast & Cascais Tour (Vision Tours)', 'Monday, July 20, 2026 (08:00 AM)', 'Vision Tours Portugal (Meet: Praça dos Restauradores 24)', 'Booked (Voucher: GYG83XF7RLY4)'],
       ['Tour', 'Fátima, Batalha, Nazaré & Óbidos Small-Group Tour (GetYourGuide)', 'Tuesday, July 21, 2026 (08:00 AM)', 'Discover Portugal With Us (Corinthia Hotel Lobby)', 'Booked (Voucher: GYGG45RVL3GQ)'],
+      ['Tour', 'Sandeman Port Wine Cellar - 1790 Tour', 'Tuesday, July 28, 2026 (03:45 PM)', 'Largo Miguel Bombarda 47, Vila Nova de Gaia', 'Booked (Voucher: 200034192)'],
       ['Cruise', 'Viking Osfrid (7 Nights)', 'July 22 – July 29, 2026', 'Booking Ref: 9706751', 'Portugal\'s River of Gold (Porto to Porto)'],
       ['Transfer', 'Lisbon to Porto Motorcoach & Coimbra Stop', 'Wednesday, July 22, 2026 (08:30 AM)', 'Viking Motorcoach Transfer', 'Included in cruise package']
     ];
